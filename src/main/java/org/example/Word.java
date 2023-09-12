@@ -48,10 +48,10 @@ public class Word {
 
     @Override
     public String toString() {
-        String alevel = "";
+        String star = "";
         for(int i=0; i<level; i++)
-            alevel += "*";
-        String str = String.format("%-3s",alevel)
+            star += "*";
+        String str = String.format("%-3s",star)
                 +String.format("%15s",word)+"  "
                 +meaning;
 

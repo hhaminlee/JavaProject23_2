@@ -25,15 +25,39 @@ public class WordCRUD implements ICURD{
     public void viewWord(){
         System.out.println("--------------------------------");
         for(int i=0; i<list.size(); i++){
-            System.out.print((i+1)+"");
+            System.out.print((i+1)+" ");
             System.out.println(list.get(i).toString());
         }
         System.out.println("--------------------------------");
     }
 
+    public ArrayList<Integer> viewWord(String key){
+        ArrayList<Integer> idList = new ArrayList<>();
+        int j=0;
+        System.out.println("--------------------------------");
+        for(int i=0; i<list.size(); i++){
+            String word = list.get(i).getWord();
+            if(!word.contains(key))
+                continue;
+            System.out.print((j+1)+" ");
+            System.out.println(list.get(i).toString());
+            idList.add(i);
+            j++;
+        }
+        System.out.println("--------------------------------");
+        return idList;
+    }
+
     @Override
-    public int update(Object obj) {
-        return 0;
+    public void updateWord() {
+        System.out.print("==> 수정할 단어 검색 : ");
+        String update = s.next();
+        ArrayList<Integer> updateList = this.viewWord(update);
+        System.out.print("==> 수정할 번호 선택 : ");
+        int updateNum = s.nextInt();
+        System.out.print("==> 뜻 입력 : ");
+        String updateStr = s.nextLine();
+        list.get(updateNum-1).setMeaning(updateStr);
     }
 
     @Override

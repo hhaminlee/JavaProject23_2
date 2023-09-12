@@ -21,6 +21,9 @@ public class WordManager {
                 case 1:
                     wordCRUD.viewWord();
                     break;
+                case 2:
+                    wordCRUD.levelView();
+                    break;
                 case 4:
                     wordCRUD.addWord();
                     break;
@@ -29,6 +32,9 @@ public class WordManager {
                     break;
                 case 6:
                     wordCRUD.deleteWord();
+                    break;
+                case 7:
+                    wordCRUD.loadVoca();
                     break;
                 default:
                     System.out.println("잘못된 선택입니다. 다시 선택하세요.");

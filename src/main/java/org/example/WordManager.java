@@ -26,6 +26,10 @@ public class WordManager {
                     break;
                 case 5:
                     wordCRUD.updateWord();
+                    break;
+                case 6:
+                    wordCRUD.deleteWord();
+                    break;
                 default:
                     System.out.println("잘못된 선택입니다. 다시 선택하세요.");
                     break;

@@ -52,19 +52,29 @@ public class WordCRUD implements ICURD{
     public void updateWord() {
         System.out.print("==> 수정할 단어 검색 : ");
         String update = s.next();
-        ArrayList<Integer> updateList = this.viewWord(update);
+        ArrayList<Integer> updateList = viewWord(update);
         System.out.print("==> 수정할 번호 선택 : ");
         int updateNum = s.nextInt();
+        s.nextLine();
         System.out.print("==> 뜻 입력 : ");
         String updateStr = s.nextLine();
         list.get(updateNum-1).setMeaning(updateStr);
+        System.out.println("단어 수정이 성공적으로 되었습니다!!");
     }
 
-    @Override
-    public int delete(Object obj) {
-        return 0;
+    public void deleteWord(){
+        System.out.print("==> 삭제할 단어 검색 : ");
+        String delete = s.next();
+        ArrayList<Integer> updateList = viewWord(delete);
+        System.out.print("==> 삭제할 번호 선택 : ");
+        int deleteNum = s.nextInt();
+        s.nextLine();
+        System.out.print("==> 정말로 삭제하실래요?(Y/n) : ");
+        String yn = s.next();
+        if(yn.equalsIgnoreCase("y"))
+            list.remove(deleteNum-1);
+        System.out.println("선택한 단어 삭제 완료 !!!");
     }
-
     @Override
     public void selectOne(int id) {
 

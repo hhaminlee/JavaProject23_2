@@ -71,6 +71,13 @@ public class WordCRUD implements ICURD{
         System.out.print("==> 수정할 단어 검색 : ");
         String update = s.next();
         ArrayList<Integer> updateList = viewWord(update);
+        while(updateList.isEmpty()){
+            System.out.println("다시 선택해주세요.");
+            System.out.print("==> 수정할 단어 검색 : ");
+            update = s.next();
+            updateList = viewWord(update);
+        }
+
         System.out.print("==> 수정할 번호 선택 : ");
         int updateNum = s.nextInt();
         s.nextLine();
@@ -86,6 +93,12 @@ public class WordCRUD implements ICURD{
         System.out.print("==> 삭제할 단어 검색 : ");
         String delete = s.next();
         ArrayList<Integer> deleteList = viewWord(delete);
+        while(deleteList.isEmpty()){
+            System.out.println("다시 선택해주세요.");
+            System.out.print("==> 삭제할 단어 검색 : ");
+            delete = s.next();
+            deleteList = viewWord(delete);
+        }
         System.out.print("==> 삭제할 번호 선택 : ");
         int deleteNum = s.nextInt();
         s.nextLine();

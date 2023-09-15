@@ -76,21 +76,25 @@ public class WordCRUD implements ICURD{
         s.nextLine();
         System.out.print("==> 뜻 입력 : ");
         String updateStr = s.nextLine();
-        list.get(updateNum-1).setMeaning(updateStr);
+        int realNum = updateList.get(updateNum-1);
+        Word word = list.get(realNum);
+        word.setMeaning(updateStr);
         System.out.println("단어 수정이 성공적으로 되었습니다!!");
     }
 
     public void deleteWord(){
         System.out.print("==> 삭제할 단어 검색 : ");
         String delete = s.next();
-        ArrayList<Integer> updateList = viewWord(delete);
+        ArrayList<Integer> deleteList = viewWord(delete);
         System.out.print("==> 삭제할 번호 선택 : ");
         int deleteNum = s.nextInt();
         s.nextLine();
         System.out.print("==> 정말로 삭제하실래요?(Y/n) : ");
         String yn = s.next();
-        if(yn.equalsIgnoreCase("y"))
-            list.remove(deleteNum-1);
+        if(yn.equalsIgnoreCase("y")){
+            int realNum = deleteList.get(deleteNum-1);
+            Word word = list.remove(realNum);
+        }
         System.out.println("선택한 단어 삭제 완료 !!!");
     }
     public void loadWord(){
@@ -142,5 +146,4 @@ public class WordCRUD implements ICURD{
         }
         System.out.println("--------------------------------");
     }
-
 }

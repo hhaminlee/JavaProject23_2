@@ -127,5 +127,21 @@ public class WordCRUD implements ICURD{
 
         ArrayList<Integer> levelList= viewWord(lv);
     }
+    public void searchWord(){
+        System.out.print("=> 검색할 단어 입력: ");
+        String search = s.next();
+        int j=0;
+        System.out.println("--------------------------------");
+        for(int i=0; i<list.size(); i++){
+            String word = list.get(i).getWord();
+            if(!word.contains(search))
+                continue;
+            System.out.print((j+1)+" ");
+            System.out.println(list.get(i).stringTo());
+            j++;
+        }
+        System.out.println("--------------------------------");
+
+    }
 
 }

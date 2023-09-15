@@ -57,4 +57,9 @@ public class Word {
 
         return str;
     }
+    public  String stringTo(){
+        String str = String.format("%15s",word)+"  "
+                +meaning;
+        return str;
+    }
 }

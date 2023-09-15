@@ -107,7 +107,7 @@ public class WordCRUD implements ICURD{
             }
             System.out.println("=>"+count+" 개의 단어 로딩완료!");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("단어를 로딩하는 중 오류가 발생했습니다.");
         }
     }
     public void saveWord(){
@@ -141,7 +141,6 @@ public class WordCRUD implements ICURD{
             j++;
         }
         System.out.println("--------------------------------");
-
     }
 
 }

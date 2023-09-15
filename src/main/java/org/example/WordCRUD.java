@@ -1,8 +1,6 @@
 package org.example;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -95,18 +93,31 @@ public class WordCRUD implements ICURD{
             list.remove(deleteNum-1);
         System.out.println("선택한 단어 삭제 완료 !!!");
     }
-    public void loadVoca(){
+    public void loadWord(){
         try(BufferedReader br = new BufferedReader(new FileReader(vocaFile))){
             String line;
+            int count = 0;
             while((line = br.readLine())!=null){
-                String[] parts = line.split("|");
+                String[] parts = line.split("\\|");
                 if(parts.length == 3){
                     Word word = new Word(0,Integer.parseInt(parts[0]),parts[1],parts[2]);
                     list.add(word);
+                    count++;
                 }
             }
+            System.out.println("=>"+count+" 개의 단어 로딩완료!");
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+    public void saveWord(){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(vocaFile))) {
+            for (Word word : list) {
+                writer.write(word.getLevel()+"|" + word.getWord() + "|" + word.getMeaning());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.err.println("데이터 파일에 쓰는 중 오류가 발생했습니다.");
         }
     }
 
@@ -116,8 +127,5 @@ public class WordCRUD implements ICURD{
 
         ArrayList<Integer> levelList= viewWord(lv);
     }
-    @Override
-    public void selectOne(int id) {
 
-    }
 }

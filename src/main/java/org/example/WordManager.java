@@ -9,6 +9,7 @@ public class WordManager {
         wordCRUD = new WordCRUD(s);
     }
     public void start(){
+        wordCRUD.loadWord();
         boolean running = true;
         while (running){
             viewMenu();
@@ -34,7 +35,7 @@ public class WordManager {
                     wordCRUD.deleteWord();
                     break;
                 case 7:
-                    wordCRUD.loadVoca();
+                    wordCRUD.saveWord();
                     break;
                 default:
                     System.out.println("잘못된 선택입니다. 다시 선택하세요.");

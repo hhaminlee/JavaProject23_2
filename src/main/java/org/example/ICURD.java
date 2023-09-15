@@ -4,5 +4,7 @@ public interface ICURD {
     void addWord();
     void updateWord();
     void deleteWord();
-    void selectOne(int id);
+    void loadWord();
+    void saveWord();
+    void levelView();
 }

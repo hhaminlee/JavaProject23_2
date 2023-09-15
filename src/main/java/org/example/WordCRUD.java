@@ -133,6 +133,7 @@ public class WordCRUD implements ICURD{
                 writer.write(word.getLevel()+"|" + word.getWord() + "|" + word.getMeaning());
                 writer.newLine();
             }
+            System.out.println("모든 단어 파일 저장 완료 !!! ");
         } catch (IOException e) {
             System.err.println("데이터 파일에 쓰는 중 오류가 발생했습니다.");
         }
